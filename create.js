@@ -1,13 +1,10 @@
 function start(){
-    const btn = document.querySelector(".generate");
-    btn.addEventListener("click", function(){
-    console.log("works")
-    
-    })
+    const URL = 'https://api.quotable.io/random'
+    getData(URL)
+
 }
 start()
 
-    const URL = 'https://api.quotable.io/random'
 async function getData(URL){
     try {
         const response = await fetch(URL);
@@ -21,4 +18,3 @@ async function getData(URL){
         console.log(error, "please try again later")
     }
 }
-getData(URL)
