@@ -1,7 +1,12 @@
 function start(){
     const URL = 'https://api.quotable.io/random'
     getData(URL)
+    const btn = document.querySelector(".button")
+    btn.addEventListener("click", function(event) {
+        event.preventDefault();
+        insert()
 
+    })
 }
 start()
 
@@ -17,4 +22,14 @@ async function getData(URL){
     } catch (error) {
         console.log(error, "please try again later")
     }
+}
+
+function insert_wrong(arr) {
+    document.querySelector(".arr_container").insertAdjacentHTML("afterbegin",
+    ``)
+}
+
+function insert_right(arr){
+    document.querySelector(".arr_container").insertAdjacentHTML("afterbegin",
+    ``)
 }
