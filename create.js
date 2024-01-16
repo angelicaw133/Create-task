@@ -4,7 +4,8 @@ function start(){
     const btn = document.querySelector(".button")
     btn.addEventListener("click", function(event) {
         event.preventDefault();
-        insert()
+        let guess = document.querySelector(".guess_author").value
+        console.log(guess)
 
     })
 }
@@ -24,12 +25,27 @@ async function getData(URL){
     }
 }
 
-function insert_wrong(arr) {
+function insert_wrong(quote, author) {
     document.querySelector(".arr_container").insertAdjacentHTML("afterbegin",
-    ``)
+    ` <div class="wrong_ans">
+    <h2>quote</h2>
+    <h3>author_ans</h3>
+    <h3>you are wrong!</h3>
+    <h3>right answer</h3>
+</div>`)
 }
 
-function insert_right(arr){
+function insert_right(quote, author){
     document.querySelector(".arr_container").insertAdjacentHTML("afterbegin",
-    ``)
+    `   <div class="right_ans">
+    <h2>quote</h2>
+    <h3>author</h3>
+    <h3>you are wrong!</h3>
+</div>`)
+}
+
+function check(guess, author) {
+    for (let i = 0; i < guess.length; i++) 
+        
+    
 }
