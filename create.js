@@ -1,10 +1,25 @@
+
+
 function start() {
+  const DOMSelectors = {
+  form: document.querySelector("#form"),
+  guess: document.querySelector(".guess_author"),
+  button: document.querySelector(".button")
+  }
   const URL = "https://api.quotable.io/random";
-  getData(URL);
+  getData(DOMSelectors, URL);
 }
 start();
 
-async function getData(URL) {
+// function createhtml() { 
+//   const submittedvariable = {
+//     guess: DOMSelectors.guess.value
+//   }
+//   console.log(submittedvariable)
+// }
+
+
+async function getData(DOMSelectors, URL) {
   try {
     const response = await fetch(URL);
     if (response.status != 200) {
@@ -15,20 +30,23 @@ async function getData(URL) {
     document.querySelector("h2").textContent = data.content;
     let author = data.author;
     let quote = data.content;
-    let guess = document.querySelector(".guess_author").value;
     let btn = document.querySelector(".button");
-
+   
     btn.addEventListener("click", function (event) {
       event.preventDefault();
+      //  let submittedvariable = {
+      // guess: DOMSelectors.guess.value,
+      // }
+      let guess = DOMSelectors.guess.value;
+      console.log(guess)
+      // console.log(submittedvariable)
       check(author, quote, guess);
-
-      console.log(guess);
-      // check(guess, author)
     });
   } catch (error) {
     console.log(error, "please try again later");
   }
 }
+
 
 function insert_wrong(quote, author, guess) {
   document.querySelector(".arr_container").insertAdjacentHTML(
