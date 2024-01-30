@@ -1,35 +1,16 @@
-:root {
-    /*typography*/
-    --h1: 11.391rem;
-    --h2: 7.594rem;
-    --h3: 5.063rem;
-    --h4: 3.375rem; 
-    --p: 1rem;
-  
-  }
+
   *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: 62.5%;
   }
 
   
   h1 {
-    font-size: var(--h1);
     text-align: center;
     margin: 4rem;
   }
-  h2{
-    font-size: var(--h2);
-  }
-  h3 {
-    font-size: var(--h3);
-  }
-  
-  h4 {
-    font-size: 3.375rem;
-  }
+ 
   
   .container {
     display: flex;

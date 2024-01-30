@@ -6,7 +6,9 @@ function start() {
   }
   const URL = "https://api.quotable.io/random";
   getData(DOMSelectors, URL);
+  
 }
+
 start();
 
 async function getData(DOMSelectors, URL) {
@@ -34,8 +36,8 @@ async function getData(DOMSelectors, URL) {
   }
 }
 
-
 function insert_wrong(quote, author, guess) {
+  create_btn();
   document.querySelector(".arr_container").insertAdjacentHTML(
     "afterbegin",
     ` <div class="wrong_ans">
@@ -48,6 +50,7 @@ function insert_wrong(quote, author, guess) {
 }
 
 function insert_right(quote, guess) {
+  create_btn();
   document.querySelector(".arr_container").insertAdjacentHTML(
     "afterbegin",
     `   <div class="right_ans">
@@ -68,4 +71,16 @@ function check(author, quote, guess) {
 
 function clear(DOMSelectors) {
   DOMSelectors.guess.value = "";
+}
+
+function create_btn() {
+  document.querySelector(".container").insertAdjacentHTML(
+    "afterbegin",
+    `<button>"Generate New Quote"</button>`
+  );
+}
+
+function new_quote() {
+  document.querySelector("h2").textContent = "";
+  
 }
