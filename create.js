@@ -1,5 +1,3 @@
-
-
 function start() {
   const DOMSelectors = {
   form: document.querySelector("#form"),
@@ -10,14 +8,6 @@ function start() {
   getData(DOMSelectors, URL);
 }
 start();
-
-// function createhtml() { 
-//   const submittedvariable = {
-//     guess: DOMSelectors.guess.value
-//   }
-//   console.log(submittedvariable)
-// }
-
 
 async function getData(DOMSelectors, URL) {
   try {
@@ -34,13 +24,10 @@ async function getData(DOMSelectors, URL) {
    
     btn.addEventListener("click", function (event) {
       event.preventDefault();
-      //  let submittedvariable = {
-      // guess: DOMSelectors.guess.value,
-      // }
       let guess = DOMSelectors.guess.value;
       console.log(guess)
-      // console.log(submittedvariable)
       check(author, quote, guess);
+      clear(DOMSelectors);
     });
   } catch (error) {
     console.log(error, "please try again later");
@@ -77,4 +64,8 @@ function check(author, quote, guess) {
   } else {
     return insert_wrong(quote, author, guess);
   }
+}
+
+function clear(DOMSelectors) {
+  DOMSelectors.guess.value = "";
 }
