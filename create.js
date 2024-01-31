@@ -5,8 +5,7 @@ function start() {
   button: document.querySelector(".button")
   }
   const URL = "https://api.quotable.io/random";
-  getData(DOMSelectors, URL);
-  
+  getData(DOMSelectors, URL); 
 }
 
 start();
@@ -69,25 +68,19 @@ function check(author, quote, guess) {
     return insert_wrong(quote, author, guess);
   }
 }
-
 function clear(DOMSelectors) {
   DOMSelectors.guess.value = "";
 }
-
 function create_btn() {
   document.querySelector(".container").insertAdjacentHTML(
     "afterbegin",
     `<button>"Generate New Quote"</button>`
   );
 }
-
 function new_quote() {
   document.querySelector("h2").textContent = "";
   
 }
-
-
-
 function calculate_arr() {
  const array = [1, 0, 1, 0, 0]; 
  let total = 0;
@@ -98,4 +91,4 @@ function calculate_arr() {
 console.log(percentage+"%")
 } 
 
-calculate_arr()
+calculate_arr()                                                                                                                                                                                                                                                                                                                                                                                                                           
