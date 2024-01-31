@@ -64,6 +64,7 @@ function insert_right(quote, guess) {
 function check(author, quote, guess) {
   if (guess == author) {
     return insert_right(quote, guess);
+    
   } else {
     return insert_wrong(quote, author, guess);
   }
@@ -84,3 +85,17 @@ function new_quote() {
   document.querySelector("h2").textContent = "";
   
 }
+
+
+
+function calculate_arr() {
+ const array = [1, 0, 1, 0, 0]; 
+ let total = 0;
+ for (let i = 0; i < array.length; i++){
+  total += array[i]; 
+ }
+ let percentage = (total / array.length) * 100
+console.log(percentage+"%")
+} 
+
+calculate_arr()
