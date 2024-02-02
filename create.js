@@ -6,6 +6,10 @@ function start() {
   };
   const URL = "https://api.quotable.io/random";
   getData(DOMSelectors, URL);
+  let arr1 = [];
+  let number = 1
+  arr1.push(number)
+  console.log(arr1)
 }
 
 start();
@@ -27,7 +31,7 @@ async function getData(DOMSelectors, URL) {
       event.preventDefault();
       let guess = DOMSelectors.guess.value;
       console.log(guess);
-      check(author, quote, guess, arr);
+      check(author, quote, guess);
       clear(DOMSelectors);
     });
   } catch (error) {
@@ -35,8 +39,7 @@ async function getData(DOMSelectors, URL) {
   }
 }
 let arr = [];
-function insert_wrong(quote, author, guess, arr) {
-  arr.push(0);
+function insert_wrong(quote, author, guess) {
   create_btn();
   document.querySelector(".arr_container").insertAdjacentHTML(
     "afterbegin",
@@ -47,12 +50,10 @@ function insert_wrong(quote, author, guess, arr) {
     <h3>Right Answer: ${author}</h3>
 </div>`
   );
-  calculate_arr(arr);
 }
 
-function insert_right(quote, guess, arr) {
+function insert_right(quote, guess) {
   create_btn();
-  arr.push(1);
   document.querySelector(".arr_container").insertAdjacentHTML(
     "afterbegin",
     `   <div class="right_ans">
@@ -61,14 +62,13 @@ function insert_right(quote, guess, arr) {
     <h3>you are Right!</h3>
 </div>`
   );
-  calculate_arr(arr);
 }
 
-function check(author, quote, guess, arr) {
+function check(author, quote, guess) {
   if (guess == author) {
-    return insert_right(quote, guess, arr);
+    return insert_right(quote, guess);
   } else {
-    return insert_wrong(quote, author, guess, arr);
+    return insert_wrong(quote, author, guess);
   }
 }
 function clear(DOMSelectors) {
@@ -80,7 +80,7 @@ function create_btn() {
     .insertAdjacentHTML("afterbegin", `<button>"Generate New Quote"</button>`);
 }
 
-function calculate_arr(arr) {
+function calculate_arr() {
   let total = 0;
   for (let i = 0; i < arr.length; i++) {
     total += arr[i];
