@@ -1,4 +1,7 @@
-
+:root {
+  --border_right: green;
+  --border_wrong: red;
+}
   *{
     box-sizing: border-box;
     margin: 0;
@@ -26,9 +29,16 @@
 }
   
 .wrong_ans {
-    background-color: red;
+    border-radius: .2rem;
+border: solid .2rem var(--border_wrong);
+
 }
 
 .right_ans {
-    background-color: green;
+    border-radius: .2rem;
+    border: solid .2rem var(--border_right);
+}
+
+.percent_success {
+  font-size: 3rem;
 }
